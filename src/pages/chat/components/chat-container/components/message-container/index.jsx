@@ -14,7 +14,7 @@ const MessageContainer = () => {
   const [showImage , setShowImage] = useState(false)
   const [imageUrl , setImageUrl] = useState(null)
 
-  const {selectedChatType , selectedChatData ,isUploading , isDownloading , userInfo , selectedChatMessages , setSelectedChatMessages , setIsDownloading , fileDownloadProgress, setFileDownloadProgress} = useAppStore()
+  const {selectedChatType , selectedChatData , isDownloading , userInfo , selectedChatMessages , setSelectedChatMessages , setIsDownloading , setFileDownloadProgress} = useAppStore()
 
   useEffect(() => {
     const getMessages = async () => {
@@ -76,7 +76,7 @@ const MessageContainer = () => {
         }
         {
           message.messageType === "file" && (
-            <div className={`${message.sender._id === userInfo.id ? 'bg-[#8417ff]/5 text-[#8417ff]/90 border-[#8417ff]/50' : 'bg-[#2a2b33]/5 text-white/80 border-[#ffffff]/20'} border inline-block p-4 rounded my-1 max-w-[50%] break-words`}>
+            <div className={`${message.sender._id === userInfo.id ? 'bg-[#8417ff]/5 text-[#8417ff]/90 border-[#8417ff]/50' : 'bg-[#2a2b33]/5 text-white/80 border-[#ffffff]/20'} border inline-block p-4 rounded my-1 md:max-w-[50%] w-full break-words`}>
               {
                 checkIfImage(message.fileUrl) ? <div onClick={() => {
                   setShowImage(true)
@@ -85,11 +85,11 @@ const MessageContainer = () => {
                   <img src={`${HOST}${message.fileUrl}`} height={300} width={300} alt='' />
                 </div> : <div className='relative flex items-center justify-center gap-5'>
                   <span className='text-white/80 text-3xl bg-black/20 rounded-full p-3'>
-                    <MdFolderZip />
+                    <MdFolderZip className='md:text-3xl text-xl' />
                   </span>
-                  <span>{message.fileUrl.split("/").pop()}</span>
+                  <span className='md:text-xl text-sm'>{message.fileUrl.split("/").pop()}</span>
                   <span onClick={() => downloadFile(message.fileUrl)} className={`bg-black/20 p-3 text-2xl rounded-full hover:bg-black/50 cursor-pointer transition-all duration-300`}>
-                    {!isDownloading ? <IoMdArrowDown /> : <IoPause />}
+                    {!isDownloading ? <IoMdArrowDown className='md:text-3xl text-xl' /> : <IoPause className='md:text-3xl text-xl' />}
                   </span>
                 </div>
               }
@@ -177,7 +177,7 @@ const MessageContainer = () => {
         }
         {
           message.messageType === "file" && (
-            <div className={`${message.sender !== selectedChatData._id ? 'bg-[#8417ff]/5 text-[#8417ff]/90 border-[#8417ff]/50' : 'bg-[#2a2b33]/5 text-white/80 border-[#ffffff]/20'} border inline-block p-4 rounded my-1 max-w-[50%] break-words`}>
+            <div className={`${message.sender !== selectedChatData._id ? 'bg-[#8417ff]/5 text-[#8417ff]/90 border-[#8417ff]/50' : 'bg-[#2a2b33]/5 text-white/80 border-[#ffffff]/20'} border inline-block p-4 rounded my-1 md:max-w-[50%] w-full break-words`}>
               {
                 checkIfImage(message.fileUrl) ? <div onClick={() => {
                   setShowImage(true)
@@ -186,13 +186,13 @@ const MessageContainer = () => {
                   <img src={`${HOST}${message.fileUrl}`} height={300} width={300} alt='' />
                 </div> : <div className='flex relative items-center justify-center gap-5'>
                   <span className='text-white/80 text-3xl bg-black/20 rounded-full p-3'>
-                    <MdFolderZip />
+                    <MdFolderZip className='md:text-3xl text-xl' />
                   </span>
                   <span>{message.fileUrl.split("/").pop()}</span>
                   <span onClick={() => downloadFile(message.fileUrl)} className='bg-black/20 p-3 text-2xl rounded-full hover:bg-black/50 cursor-pointer transition-all duration-300'>
                     
                     {
-                      !isDownloading ? <IoMdArrowDown /> : <IoPause />
+                      !isDownloading ? <IoMdArrowDown className='md:text-3xl text-xl' /> : <IoPause className='md:text-3xl text-xl' />
                     }
                   </span>
                 </div>
