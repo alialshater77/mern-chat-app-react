@@ -37,6 +37,7 @@ const ContactList = ({ contacts , isChannel= false}) => {
                                                 </div>
                                             }
                                         </Avatar>
+                                        
                                 </div>
                             )
                         }
