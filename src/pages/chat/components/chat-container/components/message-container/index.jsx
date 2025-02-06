@@ -76,7 +76,7 @@ const MessageContainer = () => {
         }
         {
           message.messageType === "file" && (
-            <div className={`${message.sender._id === userInfo.id ? 'bg-[#8417ff]/5 text-[#8417ff]/90 border-[#8417ff]/50' : 'bg-[#2a2b33]/5 text-white/80 border-[#ffffff]/20'} border inline-block p-4 rounded my-1 md:max-w-[50%] w-full break-words`}>
+            <div className={`${message.sender._id === userInfo.id ? 'bg-[#8417ff]/5 text-[#8417ff]/90 border-[#8417ff]/50' : 'bg-[#2a2b33]/5 text-white/80 border-[#ffffff]/20'} border inline-block p-4 rounded my-1 md:max-w-[50%] md:w-fit w-full break-words`}>
               {
                 checkIfImage(message.fileUrl) ? <div onClick={() => {
                   setShowImage(true)
@@ -87,7 +87,7 @@ const MessageContainer = () => {
                   <span className='text-white/80 text-3xl bg-black/20 rounded-full p-3'>
                     <MdFolderZip className='md:text-3xl text-xl' />
                   </span>
-                  <span className='md:text-xl text-sm'>{message.fileUrl.split("/").pop()}</span>
+                  <span className='md:text-md text-sm'>{message.fileUrl.split("/").pop()}</span>
                   <span onClick={() => downloadFile(message.fileUrl)} className={`bg-black/20 p-3 text-2xl rounded-full hover:bg-black/50 cursor-pointer transition-all duration-300`}>
                     {!isDownloading ? <IoMdArrowDown className='md:text-3xl text-xl' /> : <IoPause className='md:text-3xl text-xl' />}
                   </span>
@@ -177,7 +177,7 @@ const MessageContainer = () => {
         }
         {
           message.messageType === "file" && (
-            <div className={`${message.sender !== selectedChatData._id ? 'bg-[#8417ff]/5 text-[#8417ff]/90 border-[#8417ff]/50' : 'bg-[#2a2b33]/5 text-white/80 border-[#ffffff]/20'} border inline-block p-4 rounded my-1 md:max-w-[50%] w-full break-words`}>
+            <div className={`${message.sender !== selectedChatData._id ? 'bg-[#8417ff]/5 text-[#8417ff]/90 border-[#8417ff]/50' : 'bg-[#2a2b33]/5 text-white/80 border-[#ffffff]/20'} border inline-block p-4 rounded my-1 md:max-w-[50%] w-full md:w-fit break-words`}>
               {
                 checkIfImage(message.fileUrl) ? <div onClick={() => {
                   setShowImage(true)
@@ -188,7 +188,7 @@ const MessageContainer = () => {
                   <span className='text-white/80 text-3xl bg-black/20 rounded-full p-3'>
                     <MdFolderZip className='md:text-3xl text-xl' />
                   </span>
-                  <span className='md:text-xl text-sm'>{message.fileUrl.split("/").pop()}</span>
+                  <span className='md:text-md text-sm'>{message.fileUrl.split("/").pop()}</span>
                   <span onClick={() => downloadFile(message.fileUrl)} className='bg-black/20 p-3 text-2xl rounded-full hover:bg-black/50 cursor-pointer transition-all duration-300'>
                     
                     {
