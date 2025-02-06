@@ -188,7 +188,7 @@ const MessageContainer = () => {
                   <span className='text-white/80 text-3xl bg-black/20 rounded-full p-3'>
                     <MdFolderZip className='md:text-3xl text-xl' />
                   </span>
-                  <span>{message.fileUrl.split("/").pop()}</span>
+                  <span className='md:text-xl text-sm'>{message.fileUrl.split("/").pop()}</span>
                   <span onClick={() => downloadFile(message.fileUrl)} className='bg-black/20 p-3 text-2xl rounded-full hover:bg-black/50 cursor-pointer transition-all duration-300'>
                     
                     {
