@@ -108,9 +108,9 @@ const MessageBar = () => {
         }
     }
   return (
-    <div className='h-[10vh] bg-[#1c1d25] flex justify-center items-center px-8 mb-6 gap-6'>
+    <div className='h-[10vh] bg-[#1c1d25] flex justify-center items-center md:px-8 px-2 mb-6 gap-6'>
         <div className='flex-1 flex bg-[#2a2b33] rounded-md items-center gap-5 pr-5'>
-            <input type='text' value={message} onChange={e => setMessage(e.target.value)} placeholder='Enter Message' className='flex-1 p-5 bg-transparent rounded-md focus:border-none focus:outline-none' />
+            <input type='text' value={message} onChange={e => setMessage(e.target.value)} placeholder='Enter Message' className='flex-1 md:p-5 p-4 bg-transparent w-full rounded-md focus:border-none focus:outline-none' />
             <button onClick={handleAttachmentClick} className="text-neutral-500 focus:border-none focus:outline-none focus:text-white duration-300 transition-all">
                 <GrAttachment className='text-2xl' />
             </button>
@@ -123,13 +123,13 @@ const MessageBar = () => {
                 </button>
 
                 <div ref={emojiRef} className=' absolute bottom-16 right-0'>
-                    <EmojiPicker theme='dark' open={emaojiPickerOpen} autoFocusSearch={false} onEmojiClick={handleAddEmoji} />
+                    <EmojiPicker className='sm:!h-[450px] !h-[347px] sm:!w-[350px] !w-[215px] sm:!left-0 !left-[27%]' theme='dark' open={emaojiPickerOpen} autoFocusSearch={false} onEmojiClick={handleAddEmoji} />
                 </div>
             </div>
         </div>
 
         <button onClick={handleSendMessage} className="bg-[#8417ff] rounded-md flex items-center justify-center p-5 hover:bg-[#741bda] focus:bg-[#741bda] focus:border-none focus:outline-none focus:text-white duration-300 transition-all">
-            <IoSend className='text-2xl' />
+            <IoSend className='md:text-2xl text-md' />
         </button>
     </div>
   )

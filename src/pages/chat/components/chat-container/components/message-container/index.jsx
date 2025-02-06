@@ -98,7 +98,7 @@ const MessageContainer = () => {
         }
         {
           message.sender._id !== userInfo.id ? (
-            <div className='flex justify-center items-start gap-3'>
+            <div className='flex justify-start items-center gap-3'>
               <Avatar className="h-8 w-8 rounded-full overflow-hidden">
                 {
                     message.sender.image && <AvatarImage src={`${HOST}${message.sender.image}`} alt="profile" className="object-cover w-full h-full bg-black" />
