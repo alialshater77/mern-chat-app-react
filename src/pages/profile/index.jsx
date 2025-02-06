@@ -29,7 +29,7 @@ const Profile = () => {
       setSelectedColor(userInfo.color)
     }
     if(userInfo.image){
-      setImage(`${HOST}/${userInfo.image}`)
+      setImage(`${HOST}${userInfo.image}`)
     }
   } , [userInfo])
 

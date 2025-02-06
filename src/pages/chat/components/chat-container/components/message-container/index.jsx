@@ -82,7 +82,7 @@ const MessageContainer = () => {
                   setShowImage(true)
                   setImageUrl(message.fileUrl)
                 }} className=' cursor-pointer'>
-                  <img src={`${HOST}/${message.fileUrl}`} height={300} width={300} alt='' />
+                  <img src={`${HOST}${message.fileUrl}`} height={300} width={300} alt='' />
                 </div> : <div className='relative flex items-center justify-center gap-5'>
                   <span className='text-white/80 text-3xl bg-black/20 rounded-full p-3'>
                     <MdFolderZip />
@@ -101,7 +101,7 @@ const MessageContainer = () => {
             <div className='flex justify-center items-start gap-3'>
               <Avatar className="h-8 w-8 rounded-full overflow-hidden">
                 {
-                    message.sender.image && <AvatarImage src={`${HOST}/${message.sender.image}`} alt="profile" className="object-cover w-full h-full bg-black" />
+                    message.sender.image && <AvatarImage src={`${HOST}${message.sender.image}`} alt="profile" className="object-cover w-full h-full bg-black" />
                 }
                 <AvatarFallback className={` uppercase h-8 w-8 text-lg flex items-center justify-center rounded-full ${getColor(message.sender.color)}`}>
                   {message.sender.firstName ? message.sender.firstName.split("").shift() : message.sender.email.split("").shift()}
@@ -146,7 +146,7 @@ const MessageContainer = () => {
   const downloadFile = async (file) => {
     setIsDownloading(true)
     setFileDownloadProgress(0)
-    const response = await apiClient.get(`${HOST}/${file}` , {
+    const response = await apiClient.get(`${HOST}${file}` , {
       responseType: "blob",
       onDownloadProgress: progress => {
         const {loaded , total} = progress
@@ -183,7 +183,7 @@ const MessageContainer = () => {
                   setShowImage(true)
                   setImageUrl(message.fileUrl)
                 }} className=' cursor-pointer'>
-                  <img src={`${HOST}/${message.fileUrl}`} height={300} width={300} alt='' />
+                  <img src={`${HOST}${message.fileUrl}`} height={300} width={300} alt='' />
                 </div> : <div className='flex relative items-center justify-center gap-5'>
                   <span className='text-white/80 text-3xl bg-black/20 rounded-full p-3'>
                     <MdFolderZip />
@@ -215,7 +215,7 @@ const MessageContainer = () => {
         {
           showImage && <div className='fixed z-[1000] top-0 h-[100vh] w-[100vw] flex justify-center items-center backdrop-blur-lg left-0'>
             <div>
-              <img src={`${HOST}/${imageUrl}`} alt='image' className='md:h-[80vh] w-full bg-cover' />
+              <img src={`${HOST}${imageUrl}`} alt='image' className='md:h-[80vh] w-full bg-cover' />
             </div>
 
             <div className='flex gap-5 fixed top-0 mt-5'>

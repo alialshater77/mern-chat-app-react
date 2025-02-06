@@ -83,7 +83,7 @@ const NewDm = () => {
                                     <div className='w-10 h-10 relative'>
                                         <Avatar className="h-10 w-10 rounded-full overflow-hidden">
                                             {
-                                                contact.image ? <AvatarImage src={`${HOST}/${contact.image}`} alt="profile" className="object-cover rounded-full w-full h-full bg-black" /> : 
+                                                contact.image ? <AvatarImage src={`${HOST}${contact.image}`} alt="profile" className="object-cover rounded-full w-full h-full bg-black" /> : 
                                                 <div className={` uppercase h-10 w-10 text-lg border-[1px] flex items-center justify-center rounded-full ${getColor(contact.color)}`}>{
                                                     contact.firstName ? contact.firstName.split("").shift() : contact.email.split("").shift()
                                                 }</div>

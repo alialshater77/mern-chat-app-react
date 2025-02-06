@@ -35,7 +35,7 @@ const ProfileInfo = () => {
             <div className='w-10 h-10 relative'>
                 <Avatar className="h-10 w-10 rounded-full overflow-hidden">
                     {
-                        userInfo.image ? <AvatarImage src={`${HOST}/${userInfo.image}`} alt="profile" className="object-cover w-full h-full bg-black" /> : 
+                        userInfo.image ? <AvatarImage src={`${HOST}${userInfo.image}`} alt="profile" className="object-cover w-full h-full bg-black" /> : 
                         <div className={` uppercase h-10 w-10 text-lg border-[1px] flex items-center justify-center rounded-full ${getColor(userInfo.color)}`}>{
                             userInfo.firstName ? userInfo.firstName.split("").shift() : userInfo.email.split("").shift()
                         }</div>
